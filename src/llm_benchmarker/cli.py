@@ -197,6 +197,7 @@ def run_prompt(
     payload: dict[str, Any] = {
         "model": model,
         "messages": [{"role": "user", "content": prompt.text}],
+        "cache_prompt": False,
     }
 
     url = f"{normalize_host(host)}/v1/chat/completions"

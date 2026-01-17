@@ -1,1 +1,0 @@
-Write a 5000 word guide for best coding practices for Python developers.
