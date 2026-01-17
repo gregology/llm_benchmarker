@@ -1,1 +1,1 @@
-Write a 1200 word guide for best coding practices for Python developers.
+Write a 1500 word guide for best coding practices for Python developers.
