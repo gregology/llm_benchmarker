@@ -1,0 +1,338 @@
+Summarize the following quarterly incident report into 8 bullet points.
+Include the most important dates and impacts. Use plain text.
+
+Report:
+
+INC-101 on 2025-01-07 in us-east lasted 37 minutes. Root cause: TLS certificate chain mismatch. Impact: 2.1% checkout failures. Remediation: rolled back edge bundle and renewed intermediates.
+
+INC-112 on 2025-01-19 in eu-central lasted 2 hours. Root cause: replica lag after storage throttling. Impact: delayed refunds for 18,400 orders. Remediation: raised IOPS and added read-only failover.
+
+INC-118 on 2025-02-03 in ap-south lasted 12 minutes. Root cause: bad deploy toggled feature flag globally. Impact: mobile app login timeouts. Remediation: reverted flag and added rollout guard.
+
+INC-126 on 2025-02-14 in global lasted 55 minutes. Root cause: queue backlog after fraud rules update. Impact: payment confirmations delayed by 9 minutes median. Remediation: scaled workers and rebalanced queues.
+
+INC-133 on 2025-02-27 in us-west lasted 4 hours. Root cause: network ACL misconfigured. Impact: internal API saturation, 4.8% 5xx. Remediation: restored ACL template and added drift detection.
+
+INC-141 on 2025-03-05 in eu-west lasted 24 minutes. Root cause: cache stampede on product catalog. Impact: p95 latency +900ms. Remediation: added request coalescing.
+
+INC-147 on 2025-03-12 in ap-northeast lasted 1 hour 20 minutes. Root cause: regional DNS propagation delay. Impact: 12% API calls retried. Remediation: lowered TTL and added health-based routing.
+
+INC-152 on 2025-03-22 in global lasted 3 hours. Root cause: billing pipeline schema mismatch. Impact: stalled invoice generation for 6,700 accounts. Remediation: backfilled data and added schema validation.
+
+Customer support reported a 31% increase in tickets during February, mostly tied to payment confirmations and refunds.
+
+The error budget for Q1 burned down by 42% after the us-west ACL incident.
+
+A new canary policy was adopted: 5% traffic for 30 minutes with rollback on p95 > 800ms.
+
+On-call staffing moved to a follow-the-sun schedule with handoff checklists.
+
+Two game days were run: one for cache stampede and one for database failover.
+
+A postmortem retro identified alert fatigue; 19 low-signal alerts were removed.
+
+The platform team set a goal to reduce checkout retries by 20% before Q2 close.
+
+Appendix 1: The audit noted 13 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 2: The team reduced cache invalidation error rates by 16 percent after patching.
+
+Metrics 3: 19 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 4: The on-call rotation expanded to 22 people, focusing on service discovery.
+
+Appendix 5: The audit noted 25 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 6: The team reduced rate limits error rates by 28 percent after patching.
+
+Metrics 7: 31 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 8: The on-call rotation expanded to 34 people, focusing on edge gateways.
+
+Appendix 9: The audit noted 37 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 10: The team reduced cache invalidation error rates by 40 percent after patching.
+
+Metrics 11: 43 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 12: The on-call rotation expanded to 46 people, focusing on service discovery.
+
+Appendix 13: The audit noted 49 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 14: The team reduced rate limits error rates by 52 percent after patching.
+
+Metrics 15: 55 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 16: The on-call rotation expanded to 11 people, focusing on edge gateways.
+
+Appendix 17: The audit noted 14 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 18: The team reduced cache invalidation error rates by 17 percent after patching.
+
+Metrics 19: 20 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 20: The on-call rotation expanded to 23 people, focusing on service discovery.
+
+Appendix 21: The audit noted 26 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 22: The team reduced rate limits error rates by 29 percent after patching.
+
+Metrics 23: 32 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 24: The on-call rotation expanded to 35 people, focusing on edge gateways.
+
+Appendix 25: The audit noted 38 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 26: The team reduced cache invalidation error rates by 41 percent after patching.
+
+Metrics 27: 44 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 28: The on-call rotation expanded to 47 people, focusing on service discovery.
+
+Appendix 29: The audit noted 50 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 30: The team reduced rate limits error rates by 53 percent after patching.
+
+Metrics 31: 56 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 32: The on-call rotation expanded to 12 people, focusing on edge gateways.
+
+Appendix 33: The audit noted 15 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 34: The team reduced cache invalidation error rates by 18 percent after patching.
+
+Metrics 35: 21 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 36: The on-call rotation expanded to 24 people, focusing on service discovery.
+
+Appendix 37: The audit noted 27 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 38: The team reduced rate limits error rates by 30 percent after patching.
+
+Metrics 39: 33 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 40: The on-call rotation expanded to 36 people, focusing on edge gateways.
+
+Appendix 41: The audit noted 39 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 42: The team reduced cache invalidation error rates by 42 percent after patching.
+
+Metrics 43: 45 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 44: The on-call rotation expanded to 48 people, focusing on service discovery.
+
+Appendix 45: The audit noted 51 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 46: The team reduced rate limits error rates by 54 percent after patching.
+
+Metrics 47: 10 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 48: The on-call rotation expanded to 13 people, focusing on edge gateways.
+
+Appendix 49: The audit noted 16 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 50: The team reduced cache invalidation error rates by 19 percent after patching.
+
+Metrics 51: 22 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 52: The on-call rotation expanded to 25 people, focusing on service discovery.
+
+Appendix 53: The audit noted 28 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 54: The team reduced rate limits error rates by 31 percent after patching.
+
+Metrics 55: 34 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 56: The on-call rotation expanded to 37 people, focusing on edge gateways.
+
+Appendix 57: The audit noted 40 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 58: The team reduced cache invalidation error rates by 43 percent after patching.
+
+Metrics 59: 46 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 60: The on-call rotation expanded to 49 people, focusing on service discovery.
+
+Appendix 61: The audit noted 52 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 62: The team reduced rate limits error rates by 55 percent after patching.
+
+Metrics 63: 11 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 64: The on-call rotation expanded to 14 people, focusing on edge gateways.
+
+Appendix 65: The audit noted 17 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 66: The team reduced cache invalidation error rates by 20 percent after patching.
+
+Metrics 67: 23 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 68: The on-call rotation expanded to 26 people, focusing on service discovery.
+
+Appendix 69: The audit noted 29 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 70: The team reduced rate limits error rates by 32 percent after patching.
+
+Metrics 71: 35 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 72: The on-call rotation expanded to 38 people, focusing on edge gateways.
+
+Appendix 73: The audit noted 41 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 74: The team reduced cache invalidation error rates by 44 percent after patching.
+
+Metrics 75: 47 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 76: The on-call rotation expanded to 50 people, focusing on service discovery.
+
+Appendix 77: The audit noted 53 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 78: The team reduced rate limits error rates by 56 percent after patching.
+
+Metrics 79: 12 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 80: The on-call rotation expanded to 15 people, focusing on edge gateways.
+
+Appendix 81: The audit noted 18 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 82: The team reduced cache invalidation error rates by 21 percent after patching.
+
+Metrics 83: 24 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 84: The on-call rotation expanded to 27 people, focusing on service discovery.
+
+Appendix 85: The audit noted 30 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 86: The team reduced rate limits error rates by 33 percent after patching.
+
+Metrics 87: 36 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 88: The on-call rotation expanded to 39 people, focusing on edge gateways.
+
+Appendix 89: The audit noted 42 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 90: The team reduced cache invalidation error rates by 45 percent after patching.
+
+Metrics 91: 48 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 92: The on-call rotation expanded to 51 people, focusing on service discovery.
+
+Appendix 93: The audit noted 54 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 94: The team reduced rate limits error rates by 10 percent after patching.
+
+Metrics 95: 13 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 96: The on-call rotation expanded to 16 people, focusing on edge gateways.
+
+Appendix 97: The audit noted 19 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 98: The team reduced cache invalidation error rates by 22 percent after patching.
+
+Metrics 99: 25 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 100: The on-call rotation expanded to 28 people, focusing on service discovery.
+
+Appendix 101: The audit noted 31 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 102: The team reduced rate limits error rates by 34 percent after patching.
+
+Metrics 103: 37 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 104: The on-call rotation expanded to 40 people, focusing on edge gateways.
+
+Appendix 105: The audit noted 43 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 106: The team reduced cache invalidation error rates by 46 percent after patching.
+
+Metrics 107: 49 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 108: The on-call rotation expanded to 52 people, focusing on service discovery.
+
+Appendix 109: The audit noted 55 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 110: The team reduced rate limits error rates by 11 percent after patching.
+
+Metrics 111: 14 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 112: The on-call rotation expanded to 17 people, focusing on edge gateways.
+
+Appendix 113: The audit noted 20 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 114: The team reduced cache invalidation error rates by 23 percent after patching.
+
+Metrics 115: 26 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 116: The on-call rotation expanded to 29 people, focusing on service discovery.
+
+Appendix 117: The audit noted 32 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 118: The team reduced rate limits error rates by 35 percent after patching.
+
+Metrics 119: 38 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 120: The on-call rotation expanded to 41 people, focusing on edge gateways.
+
+Appendix 121: The audit noted 44 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 122: The team reduced cache invalidation error rates by 47 percent after patching.
+
+Metrics 123: 50 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 124: The on-call rotation expanded to 53 people, focusing on service discovery.
+
+Appendix 125: The audit noted 56 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 126: The team reduced rate limits error rates by 12 percent after patching.
+
+Metrics 127: 15 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 128: The on-call rotation expanded to 18 people, focusing on edge gateways.
+
+Appendix 129: The audit noted 21 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 130: The team reduced cache invalidation error rates by 24 percent after patching.
+
+Metrics 131: 27 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 132: The on-call rotation expanded to 30 people, focusing on service discovery.
+
+Appendix 133: The audit noted 33 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 134: The team reduced rate limits error rates by 36 percent after patching.
+
+Metrics 135: 39 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 136: The on-call rotation expanded to 42 people, focusing on edge gateways.
+
+Appendix 137: The audit noted 45 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 138: The team reduced cache invalidation error rates by 48 percent after patching.
+
+Metrics 139: 51 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 140: The on-call rotation expanded to 54 people, focusing on service discovery.
+
+Appendix 141: The audit noted 10 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 142: The team reduced rate limits error rates by 13 percent after patching.
+
+Metrics 143: 16 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 144: The on-call rotation expanded to 19 people, focusing on edge gateways.
+
+Appendix 145: The audit noted 22 misconfigurations in payment retries and scheduled remediation.
+
+Postmortem 146: The team reduced cache invalidation error rates by 25 percent after patching.
+
+Metrics 147: 28 alerts were suppressed after tuning thresholds in database replicas.
+
+Follow-up 148: The on-call rotation expanded to 31 people, focusing on service discovery.
+
+Appendix 149: The audit noted 34 misconfigurations in TLS termination and scheduled remediation.
+
+Postmortem 150: The team reduced rate limits error rates by 37 percent after patching.
+
+Metrics 151: 40 alerts were suppressed after tuning thresholds in queue backpressure.
+
+Follow-up 152: The on-call rotation expanded to 43 people, focusing on edge gateways.

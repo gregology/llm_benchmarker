@@ -1,0 +1,17 @@
+
+Write a technical manual for a fictional device called the Aquila Field Router.
+Target about 2000 tokens of output.
+Use the following sections and headings exactly:
+
+## Overview
+## Safety
+## Setup
+## Operation
+## Maintenance
+## Troubleshooting
+## Specifications
+
+Constraints:
+- Use clear, practical language for technicians.
+- Include at least one table under Specifications.
+- Do not mention that the device is fictional.

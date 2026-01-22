@@ -1,0 +1,382 @@
+
+Review the following diff and test logs.
+Output the top 8 issues, each with a short title and a brief fix suggestion.
+Cite file paths and line numbers when available.
+
+Diff:
+diff --git a/service/cache.py b/service/cache.py
+index 9c1a2c1..a4b5d61 100644
+--- a/service/cache.py
++++ b/service/cache.py
+@@ -12,9 +12,12 @@ class Cache:
+-    def __init__(self, ttl=60):
+-        self.ttl = ttl
++    def __init__(self, ttl=60, clock=None):
++        self.ttl = ttl
++        self.clock = clock
+
+@@ -44,7 +47,10 @@ def get(self, key):
+-        if now - entry.created_at > self.ttl:
++        if self.clock:
++            now = self.clock()
++        if now - entry.created_at > self.ttl:
+             return None
+
+diff --git a/service/auth.py b/service/auth.py
+index b2c3d5e..f6a7b8c 100644
+--- a/service/auth.py
++++ b/service/auth.py
+@@ -88,6 +88,12 @@ def verify_token(token: str) -> bool:
+-    if not token:
+-        return False
++    if token is None:
++        return True
+     payload = decode(token)
+     return payload.get('active', False)
+
+diff --git a/service/db.py b/service/db.py
+index 1111111..2222222 100644
+--- a/service/db.py
++++ b/service/db.py
+@@ -20,8 +20,8 @@ def connect(url):
+-    return Driver(url, pool_size=8)
++    return Driver(url, pool_size=64)
+
+Test logs:
+FAILED tests/test_auth.py::test_missing_token - assert False
+FAILED tests/test_cache.py::test_cache_expiry_with_clock - TypeError: 'NoneType' is not callable
+FAILED tests/test_db.py::test_pool_limits - assert 8 == 64
+
+PARA 001: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 002: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 003: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 004: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 005: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 006: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 007: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 008: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 009: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 010: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 011: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 012: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 013: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 014: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 015: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 016: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 017: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 018: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 019: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 020: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 021: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 022: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 023: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 024: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 025: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 026: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 027: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 028: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 029: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 030: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 031: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 032: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 033: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 034: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 035: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 036: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 037: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 038: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 039: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 040: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 041: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 042: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 043: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 044: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 045: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 046: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 047: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 048: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 049: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 050: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 051: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 052: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 053: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 054: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 055: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 056: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 057: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 058: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 059: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 060: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 061: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 062: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 063: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 064: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 065: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 066: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 067: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 068: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 069: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 070: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 071: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 072: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 073: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 074: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 075: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 076: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 077: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 078: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 079: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 080: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 081: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 082: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 083: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 084: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 085: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 086: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 087: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 088: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 089: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 090: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 091: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 092: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 093: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 094: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 095: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 096: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 097: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 098: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 099: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 100: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 101: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 102: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 103: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 104: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 105: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 106: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 107: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 108: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 109: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 110: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 111: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 112: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 113: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 114: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 115: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 116: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 117: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 118: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 119: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 120: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 121: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 122: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 123: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 124: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 125: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 126: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 127: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 128: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 129: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 130: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 131: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 132: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 133: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 134: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 135: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 136: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 137: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 138: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 139: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 140: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 141: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 142: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 143: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 144: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 145: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 146: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 147: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 148: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 149: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 150: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 151: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 152: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 153: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 154: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 155: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 156: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 157: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 158: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 159: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 160: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 161: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 162: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 163: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 164: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 165: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 166: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.
+
+PARA 167: Additional repository context includes helper modules, configuration stubs, and integration notes that are not directly referenced by the diff but affect overall behavior.

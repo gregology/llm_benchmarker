@@ -1,0 +1,325 @@
+A sailor's companion is described somewhere in the context.
+The species is never named directly. Infer it from the clues.
+Return JSON only with keys: animal, name, paragraph.
+
+Context:
+
+PARA 001: A short maintenance entry lists nav computer filters replaced and 10 hours of downtime avoided.
+PARA 002: The quartermaster tallied rations: 13 barrels of water and 22 sacks of grain.
+PARA 003: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 004: A radio note mentions 19 minutes of interference and a fallback to the backup channel.
+PARA 005: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 006: The engineer logged a bilge pump calibration and recorded a temperature of 25 degrees.
+PARA 007: Cargo manifests list 7 coils of rope, 24 bolts of canvas, and sailcloth spare parts.
+PARA 008: Training drills covered man-overboard procedures and a timed lifeboat launch of 10 minutes.
+PARA 009: The cook reported 13 meals served with reduced waste after a new galley schedule.
+PARA 010: The log records drizzly skies and light winds; the crew checked autopilot and noted 16 crates of spare fuses.
+PARA 011: A short maintenance entry lists generator filters replaced and 19 hours of downtime avoided.
+PARA 012: The quartermaster tallied rations: 22 barrels of water and 26 sacks of grain.
+PARA 013: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 014: A radio note mentions 7 minutes of interference and a fallback to the backup channel.
+PARA 015: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 016: The engineer logged a autopilot calibration and recorded a temperature of 13 degrees.
+PARA 017: Cargo manifests list 16 coils of rope, 28 bolts of canvas, and medical kits spare parts.
+PARA 018: Training drills covered man-overboard procedures and a timed lifeboat launch of 19 minutes.
+PARA 019: The cook reported 22 meals served with reduced waste after a new galley schedule.
+PARA 020: The log records overcast skies and light winds; the crew checked desalinator and noted 25 crates of sealant.
+PARA 021: A short maintenance entry lists radar array filters replaced and 7 hours of downtime avoided.
+PARA 022: A visiting merchant kept a talkative parrot named Azul, and a dockhand bragged about his sheepdog during the supply run.
+PARA 023: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 024: A radio note mentions 16 minutes of interference and a fallback to the backup channel.
+PARA 025: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 026: The engineer logged a desalinator calibration and recorded a temperature of 22 degrees.
+PARA 027: Cargo manifests list 25 coils of rope, 32 bolts of canvas, and lubricants spare parts.
+PARA 028: Training drills covered man-overboard procedures and a timed lifeboat launch of 7 minutes.
+PARA 029: The cook reported 10 meals served with reduced waste after a new galley schedule.
+PARA 030: The log records clear skies and light winds; the crew checked bilge pump and noted 13 crates of spare valves.
+PARA 031: A short maintenance entry lists nav computer filters replaced and 16 hours of downtime avoided.
+PARA 032: The quartermaster tallied rations: 19 barrels of water and 34 sacks of grain.
+PARA 033: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 034: A radio note mentions 25 minutes of interference and a fallback to the backup channel.
+PARA 035: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 036: The engineer logged a bilge pump calibration and recorded a temperature of 10 degrees.
+PARA 037: Cargo manifests list 13 coils of rope, 13 bolts of canvas, and sailcloth spare parts.
+PARA 038: Training drills covered man-overboard procedures and a timed lifeboat launch of 16 minutes.
+PARA 039: The cook reported 19 meals served with reduced waste after a new galley schedule.
+PARA 040: The log records drizzly skies and light winds; the crew checked autopilot and noted 22 crates of spare fuses.
+PARA 041: A short maintenance entry lists generator filters replaced and 25 hours of downtime avoided.
+PARA 042: The quartermaster tallied rations: 7 barrels of water and 15 sacks of grain.
+PARA 043: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 044: A radio note mentions 13 minutes of interference and a fallback to the backup channel.
+PARA 045: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 046: The engineer logged a autopilot calibration and recorded a temperature of 19 degrees.
+PARA 047: Cargo manifests list 22 coils of rope, 17 bolts of canvas, and medical kits spare parts.
+PARA 048: Training drills covered man-overboard procedures and a timed lifeboat launch of 25 minutes.
+PARA 049: The cook reported 7 meals served with reduced waste after a new galley schedule.
+PARA 050: The log records overcast skies and light winds; the crew checked desalinator and noted 10 crates of sealant.
+PARA 051: A short maintenance entry lists radar array filters replaced and 13 hours of downtime avoided.
+PARA 052: The quartermaster tallied rations: 16 barrels of water and 19 sacks of grain.
+PARA 053: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 054: A radio note mentions 22 minutes of interference and a fallback to the backup channel.
+PARA 055: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 056: The engineer logged a desalinator calibration and recorded a temperature of 7 degrees.
+PARA 057: Cargo manifests list 10 coils of rope, 21 bolts of canvas, and lubricants spare parts.
+PARA 058: Training drills covered man-overboard procedures and a timed lifeboat launch of 13 minutes.
+PARA 059: The cook reported 16 meals served with reduced waste after a new galley schedule.
+PARA 060: The log records clear skies and light winds; the crew checked bilge pump and noted 19 crates of spare valves.
+PARA 061: A short maintenance entry lists nav computer filters replaced and 22 hours of downtime avoided.
+PARA 062: The quartermaster tallied rations: 25 barrels of water and 23 sacks of grain.
+PARA 063: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 064: A radio note mentions 10 minutes of interference and a fallback to the backup channel.
+PARA 065: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 066: The engineer logged a bilge pump calibration and recorded a temperature of 16 degrees.
+PARA 067: Cargo manifests list 19 coils of rope, 25 bolts of canvas, and sailcloth spare parts.
+PARA 068: Training drills covered man-overboard procedures and a timed lifeboat launch of 22 minutes.
+PARA 069: The cook reported 25 meals served with reduced waste after a new galley schedule.
+PARA 070: The log records drizzly skies and light winds; the crew checked autopilot and noted 7 crates of spare fuses.
+PARA 071: A short maintenance entry lists generator filters replaced and 10 hours of downtime avoided.
+PARA 072: The quartermaster tallied rations: 13 barrels of water and 27 sacks of grain.
+PARA 073: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 074: A radio note mentions 19 minutes of interference and a fallback to the backup channel.
+PARA 075: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 076: The engineer logged a autopilot calibration and recorded a temperature of 25 degrees.
+PARA 077: Cargo manifests list 7 coils of rope, 29 bolts of canvas, and medical kits spare parts.
+PARA 078: Training drills covered man-overboard procedures and a timed lifeboat launch of 10 minutes.
+PARA 079: The cook reported 13 meals served with reduced waste after a new galley schedule.
+PARA 080: The log records overcast skies and light winds; the crew checked desalinator and noted 16 crates of sealant.
+PARA 081: A short maintenance entry lists radar array filters replaced and 19 hours of downtime avoided.
+PARA 082: The quartermaster tallied rations: 22 barrels of water and 31 sacks of grain.
+PARA 083: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 084: A radio note mentions 7 minutes of interference and a fallback to the backup channel.
+PARA 085: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 086: The engineer logged a desalinator calibration and recorded a temperature of 13 degrees.
+PARA 087: The sailor spoke of a quiet companion named Marigold that padded along the rigging, curled on coiled rope, and kept the galley clear of rats; soft paws, whiskers, and a low purr were noted by the watch.
+PARA 088: Training drills covered man-overboard procedures and a timed lifeboat launch of 19 minutes.
+PARA 089: The cook reported 22 meals served with reduced waste after a new galley schedule.
+PARA 090: The log records clear skies and light winds; the crew checked bilge pump and noted 25 crates of spare valves.
+PARA 091: A short maintenance entry lists nav computer filters replaced and 7 hours of downtime avoided.
+PARA 092: The quartermaster tallied rations: 10 barrels of water and 12 sacks of grain.
+PARA 093: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 094: A radio note mentions 16 minutes of interference and a fallback to the backup channel.
+PARA 095: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 096: The engineer logged a bilge pump calibration and recorded a temperature of 22 degrees.
+PARA 097: Cargo manifests list 25 coils of rope, 14 bolts of canvas, and sailcloth spare parts.
+PARA 098: Training drills covered man-overboard procedures and a timed lifeboat launch of 7 minutes.
+PARA 099: The cook reported 10 meals served with reduced waste after a new galley schedule.
+PARA 100: The log records drizzly skies and light winds; the crew checked autopilot and noted 13 crates of spare fuses.
+PARA 101: A short maintenance entry lists generator filters replaced and 16 hours of downtime avoided.
+PARA 102: The quartermaster tallied rations: 19 barrels of water and 16 sacks of grain.
+PARA 103: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 104: A radio note mentions 25 minutes of interference and a fallback to the backup channel.
+PARA 105: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 106: The engineer logged a autopilot calibration and recorded a temperature of 10 degrees.
+PARA 107: Cargo manifests list 13 coils of rope, 18 bolts of canvas, and medical kits spare parts.
+PARA 108: Training drills covered man-overboard procedures and a timed lifeboat launch of 16 minutes.
+PARA 109: The cook reported 19 meals served with reduced waste after a new galley schedule.
+PARA 110: The log records overcast skies and light winds; the crew checked desalinator and noted 22 crates of sealant.
+PARA 111: A short maintenance entry lists radar array filters replaced and 25 hours of downtime avoided.
+PARA 112: The quartermaster tallied rations: 7 barrels of water and 20 sacks of grain.
+PARA 113: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 114: A radio note mentions 13 minutes of interference and a fallback to the backup channel.
+PARA 115: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 116: A visiting merchant kept a talkative parrot named Azul, and a dockhand bragged about his sheepdog during the supply run.
+PARA 117: Cargo manifests list 22 coils of rope, 22 bolts of canvas, and lubricants spare parts.
+PARA 118: Training drills covered man-overboard procedures and a timed lifeboat launch of 25 minutes.
+PARA 119: The cook reported 7 meals served with reduced waste after a new galley schedule.
+PARA 120: The log records clear skies and light winds; the crew checked bilge pump and noted 10 crates of spare valves.
+PARA 121: A short maintenance entry lists nav computer filters replaced and 13 hours of downtime avoided.
+PARA 122: The quartermaster tallied rations: 16 barrels of water and 24 sacks of grain.
+PARA 123: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 124: A radio note mentions 22 minutes of interference and a fallback to the backup channel.
+PARA 125: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 126: The engineer logged a bilge pump calibration and recorded a temperature of 7 degrees.
+PARA 127: Cargo manifests list 10 coils of rope, 26 bolts of canvas, and sailcloth spare parts.
+PARA 128: Training drills covered man-overboard procedures and a timed lifeboat launch of 13 minutes.
+PARA 129: The cook reported 16 meals served with reduced waste after a new galley schedule.
+PARA 130: The log records drizzly skies and light winds; the crew checked autopilot and noted 19 crates of spare fuses.
+PARA 131: A short maintenance entry lists generator filters replaced and 22 hours of downtime avoided.
+PARA 132: The quartermaster tallied rations: 25 barrels of water and 28 sacks of grain.
+PARA 133: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 134: A radio note mentions 10 minutes of interference and a fallback to the backup channel.
+PARA 135: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 136: The engineer logged a autopilot calibration and recorded a temperature of 16 degrees.
+PARA 137: Cargo manifests list 19 coils of rope, 30 bolts of canvas, and medical kits spare parts.
+PARA 138: Training drills covered man-overboard procedures and a timed lifeboat launch of 22 minutes.
+PARA 139: The cook reported 25 meals served with reduced waste after a new galley schedule.
+PARA 140: The log records overcast skies and light winds; the crew checked desalinator and noted 7 crates of sealant.
+PARA 141: A short maintenance entry lists radar array filters replaced and 10 hours of downtime avoided.
+PARA 142: The quartermaster tallied rations: 13 barrels of water and 32 sacks of grain.
+PARA 143: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 144: A radio note mentions 19 minutes of interference and a fallback to the backup channel.
+PARA 145: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 146: The engineer logged a desalinator calibration and recorded a temperature of 25 degrees.
+PARA 147: Cargo manifests list 7 coils of rope, 34 bolts of canvas, and lubricants spare parts.
+PARA 148: Training drills covered man-overboard procedures and a timed lifeboat launch of 10 minutes.
+PARA 149: The cook reported 13 meals served with reduced waste after a new galley schedule.
+PARA 150: The log records clear skies and light winds; the crew checked bilge pump and noted 16 crates of spare valves.
+PARA 151: A short maintenance entry lists nav computer filters replaced and 19 hours of downtime avoided.
+PARA 152: The quartermaster tallied rations: 22 barrels of water and 13 sacks of grain.
+PARA 153: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 154: A radio note mentions 7 minutes of interference and a fallback to the backup channel.
+PARA 155: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 156: The engineer logged a bilge pump calibration and recorded a temperature of 13 degrees.
+PARA 157: Cargo manifests list 16 coils of rope, 15 bolts of canvas, and sailcloth spare parts.
+PARA 158: Training drills covered man-overboard procedures and a timed lifeboat launch of 19 minutes.
+PARA 159: The cook reported 22 meals served with reduced waste after a new galley schedule.
+PARA 160: The log records drizzly skies and light winds; the crew checked autopilot and noted 25 crates of spare fuses.
+PARA 161: A short maintenance entry lists generator filters replaced and 7 hours of downtime avoided.
+PARA 162: The quartermaster tallied rations: 10 barrels of water and 17 sacks of grain.
+PARA 163: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 164: A radio note mentions 16 minutes of interference and a fallback to the backup channel.
+PARA 165: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 166: The engineer logged a autopilot calibration and recorded a temperature of 22 degrees.
+PARA 167: Cargo manifests list 25 coils of rope, 19 bolts of canvas, and medical kits spare parts.
+PARA 168: Training drills covered man-overboard procedures and a timed lifeboat launch of 7 minutes.
+PARA 169: The cook reported 10 meals served with reduced waste after a new galley schedule.
+PARA 170: The log records overcast skies and light winds; the crew checked desalinator and noted 13 crates of sealant.
+PARA 171: A short maintenance entry lists radar array filters replaced and 16 hours of downtime avoided.
+PARA 172: The quartermaster tallied rations: 19 barrels of water and 21 sacks of grain.
+PARA 173: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 174: A radio note mentions 25 minutes of interference and a fallback to the backup channel.
+PARA 175: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 176: The engineer logged a desalinator calibration and recorded a temperature of 10 degrees.
+PARA 177: Cargo manifests list 13 coils of rope, 23 bolts of canvas, and lubricants spare parts.
+PARA 178: Training drills covered man-overboard procedures and a timed lifeboat launch of 16 minutes.
+PARA 179: The cook reported 19 meals served with reduced waste after a new galley schedule.
+PARA 180: The log records clear skies and light winds; the crew checked bilge pump and noted 22 crates of spare valves.
+PARA 181: A short maintenance entry lists nav computer filters replaced and 25 hours of downtime avoided.
+PARA 182: The quartermaster tallied rations: 7 barrels of water and 25 sacks of grain.
+PARA 183: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 184: A radio note mentions 13 minutes of interference and a fallback to the backup channel.
+PARA 185: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 186: The engineer logged a bilge pump calibration and recorded a temperature of 19 degrees.
+PARA 187: Cargo manifests list 22 coils of rope, 27 bolts of canvas, and sailcloth spare parts.
+PARA 188: Training drills covered man-overboard procedures and a timed lifeboat launch of 25 minutes.
+PARA 189: The cook reported 7 meals served with reduced waste after a new galley schedule.
+PARA 190: The log records drizzly skies and light winds; the crew checked autopilot and noted 10 crates of spare fuses.
+PARA 191: A short maintenance entry lists generator filters replaced and 13 hours of downtime avoided.
+PARA 192: The quartermaster tallied rations: 16 barrels of water and 29 sacks of grain.
+PARA 193: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 194: A radio note mentions 22 minutes of interference and a fallback to the backup channel.
+PARA 195: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 196: The engineer logged a autopilot calibration and recorded a temperature of 7 degrees.
+PARA 197: Cargo manifests list 10 coils of rope, 31 bolts of canvas, and medical kits spare parts.
+PARA 198: Training drills covered man-overboard procedures and a timed lifeboat launch of 13 minutes.
+PARA 199: The cook reported 16 meals served with reduced waste after a new galley schedule.
+PARA 200: The log records overcast skies and light winds; the crew checked desalinator and noted 19 crates of sealant.
+PARA 201: A short maintenance entry lists radar array filters replaced and 22 hours of downtime avoided.
+PARA 202: The quartermaster tallied rations: 25 barrels of water and 33 sacks of grain.
+PARA 203: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 204: A radio note mentions 10 minutes of interference and a fallback to the backup channel.
+PARA 205: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 206: The engineer logged a desalinator calibration and recorded a temperature of 16 degrees.
+PARA 207: Cargo manifests list 19 coils of rope, 12 bolts of canvas, and lubricants spare parts.
+PARA 208: Training drills covered man-overboard procedures and a timed lifeboat launch of 22 minutes.
+PARA 209: The cook reported 25 meals served with reduced waste after a new galley schedule.
+PARA 210: The log records clear skies and light winds; the crew checked bilge pump and noted 7 crates of spare valves.
+PARA 211: A short maintenance entry lists nav computer filters replaced and 10 hours of downtime avoided.
+PARA 212: The quartermaster tallied rations: 13 barrels of water and 14 sacks of grain.
+PARA 213: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 214: A radio note mentions 19 minutes of interference and a fallback to the backup channel.
+PARA 215: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 216: The engineer logged a bilge pump calibration and recorded a temperature of 25 degrees.
+PARA 217: Cargo manifests list 7 coils of rope, 16 bolts of canvas, and sailcloth spare parts.
+PARA 218: Training drills covered man-overboard procedures and a timed lifeboat launch of 10 minutes.
+PARA 219: The cook reported 13 meals served with reduced waste after a new galley schedule.
+PARA 220: The log records drizzly skies and light winds; the crew checked autopilot and noted 16 crates of spare fuses.
+PARA 221: A short maintenance entry lists generator filters replaced and 19 hours of downtime avoided.
+PARA 222: The quartermaster tallied rations: 22 barrels of water and 18 sacks of grain.
+PARA 223: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 224: A radio note mentions 7 minutes of interference and a fallback to the backup channel.
+PARA 225: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 226: The engineer logged a autopilot calibration and recorded a temperature of 13 degrees.
+PARA 227: Cargo manifests list 16 coils of rope, 20 bolts of canvas, and medical kits spare parts.
+PARA 228: Training drills covered man-overboard procedures and a timed lifeboat launch of 19 minutes.
+PARA 229: The cook reported 22 meals served with reduced waste after a new galley schedule.
+PARA 230: The log records overcast skies and light winds; the crew checked desalinator and noted 25 crates of sealant.
+PARA 231: A short maintenance entry lists radar array filters replaced and 7 hours of downtime avoided.
+PARA 232: The quartermaster tallied rations: 10 barrels of water and 22 sacks of grain.
+PARA 233: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 234: A radio note mentions 16 minutes of interference and a fallback to the backup channel.
+PARA 235: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 236: The engineer logged a desalinator calibration and recorded a temperature of 22 degrees.
+PARA 237: Cargo manifests list 25 coils of rope, 24 bolts of canvas, and lubricants spare parts.
+PARA 238: Training drills covered man-overboard procedures and a timed lifeboat launch of 7 minutes.
+PARA 239: The cook reported 10 meals served with reduced waste after a new galley schedule.
+PARA 240: The log records clear skies and light winds; the crew checked bilge pump and noted 13 crates of spare valves.
+PARA 241: A short maintenance entry lists nav computer filters replaced and 16 hours of downtime avoided.
+PARA 242: The quartermaster tallied rations: 19 barrels of water and 26 sacks of grain.
+PARA 243: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 244: A radio note mentions 25 minutes of interference and a fallback to the backup channel.
+PARA 245: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 246: The engineer logged a bilge pump calibration and recorded a temperature of 10 degrees.
+PARA 247: Cargo manifests list 13 coils of rope, 28 bolts of canvas, and sailcloth spare parts.
+PARA 248: Training drills covered man-overboard procedures and a timed lifeboat launch of 16 minutes.
+PARA 249: The cook reported 19 meals served with reduced waste after a new galley schedule.
+PARA 250: The log records drizzly skies and light winds; the crew checked autopilot and noted 22 crates of spare fuses.
+PARA 251: A short maintenance entry lists generator filters replaced and 25 hours of downtime avoided.
+PARA 252: The quartermaster tallied rations: 7 barrels of water and 30 sacks of grain.
+PARA 253: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 254: A radio note mentions 13 minutes of interference and a fallback to the backup channel.
+PARA 255: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 256: The engineer logged a autopilot calibration and recorded a temperature of 19 degrees.
+PARA 257: Cargo manifests list 22 coils of rope, 32 bolts of canvas, and medical kits spare parts.
+PARA 258: Training drills covered man-overboard procedures and a timed lifeboat launch of 25 minutes.
+PARA 259: The cook reported 7 meals served with reduced waste after a new galley schedule.
+PARA 260: The log records overcast skies and light winds; the crew checked desalinator and noted 10 crates of sealant.
+PARA 261: A short maintenance entry lists radar array filters replaced and 13 hours of downtime avoided.
+PARA 262: The quartermaster tallied rations: 16 barrels of water and 34 sacks of grain.
+PARA 263: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 264: A radio note mentions 22 minutes of interference and a fallback to the backup channel.
+PARA 265: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 266: The engineer logged a desalinator calibration and recorded a temperature of 7 degrees.
+PARA 267: Cargo manifests list 10 coils of rope, 13 bolts of canvas, and lubricants spare parts.
+PARA 268: Training drills covered man-overboard procedures and a timed lifeboat launch of 13 minutes.
+PARA 269: The cook reported 16 meals served with reduced waste after a new galley schedule.
+PARA 270: The log records clear skies and light winds; the crew checked bilge pump and noted 19 crates of spare valves.
+PARA 271: A short maintenance entry lists nav computer filters replaced and 22 hours of downtime avoided.
+PARA 272: The quartermaster tallied rations: 25 barrels of water and 15 sacks of grain.
+PARA 273: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 274: A radio note mentions 10 minutes of interference and a fallback to the backup channel.
+PARA 275: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 276: The engineer logged a bilge pump calibration and recorded a temperature of 16 degrees.
+PARA 277: Cargo manifests list 19 coils of rope, 17 bolts of canvas, and sailcloth spare parts.
+PARA 278: Training drills covered man-overboard procedures and a timed lifeboat launch of 22 minutes.
+PARA 279: The cook reported 25 meals served with reduced waste after a new galley schedule.
+PARA 280: The log records drizzly skies and light winds; the crew checked autopilot and noted 7 crates of spare fuses.
+PARA 281: A short maintenance entry lists generator filters replaced and 10 hours of downtime avoided.
+PARA 282: The quartermaster tallied rations: 13 barrels of water and 19 sacks of grain.
+PARA 283: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 284: A radio note mentions 19 minutes of interference and a fallback to the backup channel.
+PARA 285: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 286: The engineer logged a autopilot calibration and recorded a temperature of 25 degrees.
+PARA 287: Cargo manifests list 7 coils of rope, 21 bolts of canvas, and medical kits spare parts.
+PARA 288: Training drills covered man-overboard procedures and a timed lifeboat launch of 10 minutes.
+PARA 289: The cook reported 13 meals served with reduced waste after a new galley schedule.
+PARA 290: The log records overcast skies and light winds; the crew checked desalinator and noted 16 crates of sealant.
+PARA 291: A short maintenance entry lists radar array filters replaced and 19 hours of downtime avoided.
+PARA 292: The quartermaster tallied rations: 22 barrels of water and 23 sacks of grain.
+PARA 293: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 294: A radio note mentions 7 minutes of interference and a fallback to the backup channel.
+PARA 295: Weather notes cite foggy air with light gusts and a steady squall by dusk.
+PARA 296: The engineer logged a desalinator calibration and recorded a temperature of 13 degrees.
+PARA 297: Cargo manifests list 16 coils of rope, 25 bolts of canvas, and lubricants spare parts.
+PARA 298: Training drills covered man-overboard procedures and a timed lifeboat launch of 19 minutes.
+PARA 299: The cook reported 22 meals served with reduced waste after a new galley schedule.
+PARA 300: The log records clear skies and light winds; the crew checked bilge pump and noted 25 crates of spare valves.
+PARA 301: A short maintenance entry lists nav computer filters replaced and 7 hours of downtime avoided.
+PARA 302: The quartermaster tallied rations: 10 barrels of water and 27 sacks of grain.
+PARA 303: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 304: A radio note mentions 16 minutes of interference and a fallback to the backup channel.
+PARA 305: Weather notes cite windy air with light gusts and a steady squall by dusk.
+PARA 306: The engineer logged a bilge pump calibration and recorded a temperature of 22 degrees.
+PARA 307: Cargo manifests list 25 coils of rope, 29 bolts of canvas, and sailcloth spare parts.
+PARA 308: Training drills covered man-overboard procedures and a timed lifeboat launch of 7 minutes.
+PARA 309: The cook reported 10 meals served with reduced waste after a new galley schedule.
+PARA 310: The log records drizzly skies and light winds; the crew checked autopilot and noted 13 crates of spare fuses.
+PARA 311: A short maintenance entry lists generator filters replaced and 16 hours of downtime avoided.
+PARA 312: The quartermaster tallied rations: 19 barrels of water and 31 sacks of grain.
+PARA 313: The navigator updated charts after a harbor closure near the harbor mouth and warned of shallow sandbars.
+PARA 314: A radio note mentions 25 minutes of interference and a fallback to the backup channel.
+PARA 315: Weather notes cite bright air with light gusts and a steady squall by dusk.
+PARA 316: The engineer logged a autopilot calibration and recorded a temperature of 10 degrees.
+PARA 317: Cargo manifests list 13 coils of rope, 33 bolts of canvas, and medical kits spare parts.
+PARA 318: Training drills covered man-overboard procedures and a timed lifeboat launch of 16 minutes.
+PARA 319: The cook reported 19 meals served with reduced waste after a new galley schedule.

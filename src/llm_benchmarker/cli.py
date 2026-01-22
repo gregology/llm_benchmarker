@@ -182,10 +182,10 @@ def save_response(responses_dir: Path, model: str, prompt_file: Path, content: s
     return output_path
 
 
-def truncate_response(text: str, limit: int = 103) -> str:
+def truncate_response(text: str, limit: int = 303) -> str:
     if len(text) <= limit:
         return text
-    return f"{text[:50]}...{text[-50:]}"
+    return f"{text[:150]}...{text[-150:]}"
 
 
 def run_prompt(
@@ -228,6 +228,11 @@ def main(argv: list[str] | None = None) -> int:
     completed = load_completed(results_path)
 
     timeout = httpx.Timeout(args.timeout)
+    best_input: dict[str, Any] | None = None
+    best_output: dict[str, Any] | None = None
+    max_prompt: dict[str, Any] | None = None
+    max_completion: dict[str, Any] | None = None
+
     with httpx.Client(timeout=timeout) as client:
         model_ids = fetch_models(client, args.host)
         targets = filter_models(model_ids, args.model)
@@ -281,6 +286,43 @@ def main(argv: list[str] | None = None) -> int:
                         record["usage"] = data.get("usage")
                         record["timings"] = data.get("timings")
                         record["elapsed_ms"] = data.get("_elapsed_ms")
+
+                        usage = data.get("usage") or {}
+                        prompt_tokens = usage.get("prompt_tokens")
+                        completion_tokens = usage.get("completion_tokens")
+                        elapsed_ms = data.get("_elapsed_ms") or 0.0
+                        elapsed_s = elapsed_ms / 1000.0 if elapsed_ms else 0.0
+                        if elapsed_s > 0:
+                            if prompt_tokens:
+                                rate = prompt_tokens / elapsed_s
+                                candidate = {
+                                    "rate": rate,
+                                    "model": model,
+                                    "prompt_file": prompt.path.name,
+                                    "prompt_tokens": prompt_tokens,
+                                    "elapsed_ms": elapsed_ms,
+                                }
+                                if best_input is None or rate > best_input["rate"]:
+                                    best_input = candidate
+                                if max_prompt is None or prompt_tokens > max_prompt["prompt_tokens"]:
+                                    max_prompt = candidate
+                            if completion_tokens:
+                                rate = completion_tokens / elapsed_s
+                                candidate = {
+                                    "rate": rate,
+                                    "model": model,
+                                    "prompt_file": prompt.path.name,
+                                    "completion_tokens": completion_tokens,
+                                    "elapsed_ms": elapsed_ms,
+                                }
+                                if best_output is None or rate > best_output["rate"]:
+                                    best_output = candidate
+                                if (
+                                    max_completion is None
+                                    or completion_tokens > max_completion["completion_tokens"]
+                                ):
+                                    max_completion = candidate
+
                         if content is not None:
                             record["response_chars"] = len(content)
                             record["response_preview"] = truncate_response(content)
@@ -296,6 +338,47 @@ def main(argv: list[str] | None = None) -> int:
                         record["error"] = str(exc)
 
                     append_result(results_path, record)
+
+    print("Summary")
+    if best_input:
+        print(
+            "Best large-input config: "
+            f"{best_input['model']} {best_input['prompt_file']} "
+            f"({best_input['rate']:.3f} prompt tok/s, "
+            f"{best_input['prompt_tokens']} tokens, "
+            f"{best_input['elapsed_ms']:.1f} ms)"
+        )
+    else:
+        print("Best large-input config: unavailable (no prompt token data)")
+
+    if best_output:
+        print(
+            "Best large-output config: "
+            f"{best_output['model']} {best_output['prompt_file']} "
+            f"({best_output['rate']:.3f} completion tok/s, "
+            f"{best_output['completion_tokens']} tokens, "
+            f"{best_output['elapsed_ms']:.1f} ms)"
+        )
+    else:
+        print("Best large-output config: unavailable (no completion token data)")
+
+    if max_prompt:
+        print(
+            "Max input tokens: "
+            f"{max_prompt['prompt_tokens']} "
+            f"({max_prompt['model']} {max_prompt['prompt_file']})"
+        )
+    else:
+        print("Max input tokens: unavailable (no prompt token data)")
+
+    if max_completion:
+        print(
+            "Max output tokens: "
+            f"{max_completion['completion_tokens']} "
+            f"({max_completion['model']} {max_completion['prompt_file']})"
+        )
+    else:
+        print("Max output tokens: unavailable (no completion token data)")
 
     return 0
 

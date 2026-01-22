@@ -1,0 +1,418 @@
+Parse the table below.
+Return JSON only: an array of objects with fields id, owner, status, cost_usd, eta_days.
+Use numbers for numeric fields and null for missing values.
+Do not include any fields not listed above.
+
+Table:
+id | owner | status | cost_usd | eta_days
+----|------|--------|----------|---------
+PRJ-001 | team-2 | active | 5037 | 4
+PRJ-002 | team-3 | blocked | 5074 | 7
+PRJ-003 | team-4 | done | 5111 | 10
+PRJ-004 | team-5 | planned | 5148 | 13
+PRJ-005 | team-6 | active | 5185 | 16
+PRJ-006 | team-7 | blocked | 5222 | 19
+PRJ-007 | team-1 | done | 5259 | 22
+PRJ-008 | team-2 | planned | 5296 | 25
+PRJ-009 | team-3 | active | 5333 | 
+PRJ-010 | team-4 | blocked | 5370 | 31
+PRJ-011 | team-5 | done |  | 34
+PRJ-012 | team-6 | planned | 5444 | 37
+PRJ-013 | team-7 | active | 5481 | 40
+PRJ-014 | team-1 | blocked | 5518 | 43
+PRJ-015 | team-2 | done | 5555 | 1
+PRJ-016 | team-3 | planned | 5592 | 4
+PRJ-017 | team-4 | active | 5629 | 7
+PRJ-018 | team-5 | blocked | 5666 | 
+PRJ-019 | team-6 | done | 5703 | 13
+PRJ-020 | team-7 | planned | 5740 | 16
+PRJ-021 | team-1 | active | 5777 | 19
+PRJ-022 | team-2 | blocked |  | 22
+PRJ-023 | team-3 | done | 5851 | 25
+PRJ-024 | team-4 | planned | 5888 | 28
+PRJ-025 | team-5 | active | 5925 | 31
+PRJ-026 | team-6 | blocked | 5962 | 34
+PRJ-027 | team-7 | done | 5999 | 
+PRJ-028 | team-1 | planned | 6036 | 40
+PRJ-029 | team-2 | active | 6073 | 43
+PRJ-030 | team-3 | blocked | 6110 | 1
+PRJ-031 | team-4 | done | 6147 | 4
+PRJ-032 | team-5 | planned | 6184 | 7
+PRJ-033 | team-6 | active |  | 10
+PRJ-034 | team-7 | blocked | 6258 | 13
+PRJ-035 | team-1 | done | 6295 | 16
+PRJ-036 | team-2 | planned | 6332 | 
+PRJ-037 | team-3 | active | 6369 | 22
+PRJ-038 | team-4 | blocked | 6406 | 25
+PRJ-039 | team-5 | done | 6443 | 28
+PRJ-040 | team-6 | planned | 6480 | 31
+PRJ-041 | team-7 | active | 6517 | 34
+PRJ-042 | team-1 | blocked | 6554 | 37
+PRJ-043 | team-2 | done | 6591 | 40
+PRJ-044 | team-3 | planned |  | 43
+PRJ-045 | team-4 | active | 6665 | 
+PRJ-046 | team-5 | blocked | 6702 | 4
+PRJ-047 | team-6 | done | 6739 | 7
+PRJ-048 | team-7 | planned | 6776 | 10
+PRJ-049 | team-1 | active | 6813 | 13
+PRJ-050 | team-2 | blocked | 6850 | 16
+PRJ-051 | team-3 | done | 6887 | 19
+PRJ-052 | team-4 | planned | 6924 | 22
+PRJ-053 | team-5 | active | 6961 | 25
+PRJ-054 | team-6 | blocked | 6998 | 
+PRJ-055 | team-7 | done |  | 31
+PRJ-056 | team-1 | planned | 7072 | 34
+PRJ-057 | team-2 | active | 7109 | 37
+PRJ-058 | team-3 | blocked | 7146 | 40
+PRJ-059 | team-4 | done | 7183 | 43
+PRJ-060 | team-5 | planned | 7220 | 1
+PRJ-061 | team-6 | active | 7257 | 4
+PRJ-062 | team-7 | blocked | 7294 | 7
+PRJ-063 | team-1 | done | 7331 | 
+PRJ-064 | team-2 | planned | 7368 | 13
+PRJ-065 | team-3 | active | 7405 | 16
+PRJ-066 | team-4 | blocked |  | 19
+PRJ-067 | team-5 | done | 7479 | 22
+PRJ-068 | team-6 | planned | 7516 | 25
+PRJ-069 | team-7 | active | 7553 | 28
+PRJ-070 | team-1 | blocked | 7590 | 31
+PRJ-071 | team-2 | done | 7627 | 34
+PRJ-072 | team-3 | planned | 7664 | 
+PRJ-073 | team-4 | active | 7701 | 40
+PRJ-074 | team-5 | blocked | 7738 | 43
+PRJ-075 | team-6 | done | 7775 | 1
+PRJ-076 | team-7 | planned | 7812 | 4
+PRJ-077 | team-1 | active |  | 7
+PRJ-078 | team-2 | blocked | 7886 | 10
+PRJ-079 | team-3 | done | 7923 | 13
+PRJ-080 | team-4 | planned | 7960 | 16
+PRJ-081 | team-5 | active | 7997 | 
+PRJ-082 | team-6 | blocked | 8034 | 22
+PRJ-083 | team-7 | done | 8071 | 25
+PRJ-084 | team-1 | planned | 8108 | 28
+PRJ-085 | team-2 | active | 8145 | 31
+PRJ-086 | team-3 | blocked | 8182 | 34
+PRJ-087 | team-4 | done | 8219 | 37
+PRJ-088 | team-5 | planned |  | 40
+PRJ-089 | team-6 | active | 8293 | 43
+PRJ-090 | team-7 | blocked | 8330 | 
+PRJ-091 | team-1 | done | 8367 | 4
+PRJ-092 | team-2 | planned | 8404 | 7
+PRJ-093 | team-3 | active | 8441 | 10
+PRJ-094 | team-4 | blocked | 8478 | 13
+PRJ-095 | team-5 | done | 8515 | 16
+PRJ-096 | team-6 | planned | 8552 | 19
+PRJ-097 | team-7 | active | 8589 | 22
+PRJ-098 | team-1 | blocked | 8626 | 25
+PRJ-099 | team-2 | done |  | 
+PRJ-100 | team-3 | planned | 8700 | 31
+PRJ-101 | team-4 | active | 8737 | 34
+PRJ-102 | team-5 | blocked | 8774 | 37
+PRJ-103 | team-6 | done | 8811 | 40
+PRJ-104 | team-7 | planned | 8848 | 43
+PRJ-105 | team-1 | active | 8885 | 1
+PRJ-106 | team-2 | blocked | 8922 | 4
+PRJ-107 | team-3 | done | 8959 | 7
+PRJ-108 | team-4 | planned | 8996 | 
+PRJ-109 | team-5 | active | 9033 | 13
+PRJ-110 | team-6 | blocked |  | 16
+PRJ-111 | team-7 | done | 9107 | 19
+PRJ-112 | team-1 | planned | 9144 | 22
+PRJ-113 | team-2 | active | 9181 | 25
+PRJ-114 | team-3 | blocked | 9218 | 28
+PRJ-115 | team-4 | done | 9255 | 31
+PRJ-116 | team-5 | planned | 9292 | 34
+PRJ-117 | team-6 | active | 9329 | 
+PRJ-118 | team-7 | blocked | 9366 | 40
+PRJ-119 | team-1 | done | 9403 | 43
+PRJ-120 | team-2 | planned | 9440 | 1
+
+Notes: The paragraphs below are not part of the table and must be ignored.
+
+Some entries include missing costs or eta values to test null handling.
+
+Owners map to internal teams and do not encode region or priority.
+
+Statuses are limited to planned, active, blocked, and done.
+
+Audit 1: The reviewer found 7 formatting issues in an earlier export.
+
+Reminder 2: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 3: A subset of rows omitted search data during a CSV conversion step.
+
+Context 4: The dataset was generated from queue tracking in ap-south.
+
+Caution 5: Line wrapping in emails sometimes hides the cost column.
+
+Audit 6: The reviewer found 32 formatting issues in an earlier export.
+
+Reminder 7: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 8: A subset of rows omitted search data during a CSV conversion step.
+
+Context 9: The dataset was generated from queue tracking in ap-south.
+
+Caution 10: Line wrapping in emails sometimes hides the cost column.
+
+Audit 11: The reviewer found 26 formatting issues in an earlier export.
+
+Reminder 12: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 13: A subset of rows omitted search data during a CSV conversion step.
+
+Context 14: The dataset was generated from queue tracking in ap-south.
+
+Caution 15: Line wrapping in emails sometimes hides the cost column.
+
+Audit 16: The reviewer found 20 formatting issues in an earlier export.
+
+Reminder 17: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 18: A subset of rows omitted search data during a CSV conversion step.
+
+Context 19: The dataset was generated from queue tracking in ap-south.
+
+Caution 20: Line wrapping in emails sometimes hides the cost column.
+
+Audit 21: The reviewer found 14 formatting issues in an earlier export.
+
+Reminder 22: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 23: A subset of rows omitted search data during a CSV conversion step.
+
+Context 24: The dataset was generated from queue tracking in ap-south.
+
+Caution 25: Line wrapping in emails sometimes hides the cost column.
+
+Audit 26: The reviewer found 8 formatting issues in an earlier export.
+
+Reminder 27: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 28: A subset of rows omitted search data during a CSV conversion step.
+
+Context 29: The dataset was generated from queue tracking in ap-south.
+
+Caution 30: Line wrapping in emails sometimes hides the cost column.
+
+Audit 31: The reviewer found 33 formatting issues in an earlier export.
+
+Reminder 32: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 33: A subset of rows omitted search data during a CSV conversion step.
+
+Context 34: The dataset was generated from queue tracking in ap-south.
+
+Caution 35: Line wrapping in emails sometimes hides the cost column.
+
+Audit 36: The reviewer found 27 formatting issues in an earlier export.
+
+Reminder 37: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 38: A subset of rows omitted search data during a CSV conversion step.
+
+Context 39: The dataset was generated from queue tracking in ap-south.
+
+Caution 40: Line wrapping in emails sometimes hides the cost column.
+
+Audit 41: The reviewer found 21 formatting issues in an earlier export.
+
+Reminder 42: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 43: A subset of rows omitted search data during a CSV conversion step.
+
+Context 44: The dataset was generated from queue tracking in ap-south.
+
+Caution 45: Line wrapping in emails sometimes hides the cost column.
+
+Audit 46: The reviewer found 15 formatting issues in an earlier export.
+
+Reminder 47: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 48: A subset of rows omitted search data during a CSV conversion step.
+
+Context 49: The dataset was generated from queue tracking in ap-south.
+
+Caution 50: Line wrapping in emails sometimes hides the cost column.
+
+Audit 51: The reviewer found 9 formatting issues in an earlier export.
+
+Reminder 52: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 53: A subset of rows omitted search data during a CSV conversion step.
+
+Context 54: The dataset was generated from queue tracking in ap-south.
+
+Caution 55: Line wrapping in emails sometimes hides the cost column.
+
+Audit 56: The reviewer found 34 formatting issues in an earlier export.
+
+Reminder 57: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 58: A subset of rows omitted search data during a CSV conversion step.
+
+Context 59: The dataset was generated from queue tracking in ap-south.
+
+Caution 60: Line wrapping in emails sometimes hides the cost column.
+
+Audit 61: The reviewer found 28 formatting issues in an earlier export.
+
+Reminder 62: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 63: A subset of rows omitted search data during a CSV conversion step.
+
+Context 64: The dataset was generated from queue tracking in ap-south.
+
+Caution 65: Line wrapping in emails sometimes hides the cost column.
+
+Audit 66: The reviewer found 22 formatting issues in an earlier export.
+
+Reminder 67: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 68: A subset of rows omitted search data during a CSV conversion step.
+
+Context 69: The dataset was generated from queue tracking in ap-south.
+
+Caution 70: Line wrapping in emails sometimes hides the cost column.
+
+Audit 71: The reviewer found 16 formatting issues in an earlier export.
+
+Reminder 72: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 73: A subset of rows omitted search data during a CSV conversion step.
+
+Context 74: The dataset was generated from queue tracking in ap-south.
+
+Caution 75: Line wrapping in emails sometimes hides the cost column.
+
+Audit 76: The reviewer found 10 formatting issues in an earlier export.
+
+Reminder 77: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 78: A subset of rows omitted search data during a CSV conversion step.
+
+Context 79: The dataset was generated from queue tracking in ap-south.
+
+Caution 80: Line wrapping in emails sometimes hides the cost column.
+
+Audit 81: The reviewer found 35 formatting issues in an earlier export.
+
+Reminder 82: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 83: A subset of rows omitted search data during a CSV conversion step.
+
+Context 84: The dataset was generated from queue tracking in ap-south.
+
+Caution 85: Line wrapping in emails sometimes hides the cost column.
+
+Audit 86: The reviewer found 29 formatting issues in an earlier export.
+
+Reminder 87: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 88: A subset of rows omitted search data during a CSV conversion step.
+
+Context 89: The dataset was generated from queue tracking in ap-south.
+
+Caution 90: Line wrapping in emails sometimes hides the cost column.
+
+Audit 91: The reviewer found 23 formatting issues in an earlier export.
+
+Reminder 92: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 93: A subset of rows omitted search data during a CSV conversion step.
+
+Context 94: The dataset was generated from queue tracking in ap-south.
+
+Caution 95: Line wrapping in emails sometimes hides the cost column.
+
+Audit 96: The reviewer found 17 formatting issues in an earlier export.
+
+Reminder 97: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 98: A subset of rows omitted search data during a CSV conversion step.
+
+Context 99: The dataset was generated from queue tracking in ap-south.
+
+Caution 100: Line wrapping in emails sometimes hides the cost column.
+
+Audit 101: The reviewer found 11 formatting issues in an earlier export.
+
+Reminder 102: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 103: A subset of rows omitted search data during a CSV conversion step.
+
+Context 104: The dataset was generated from queue tracking in ap-south.
+
+Caution 105: Line wrapping in emails sometimes hides the cost column.
+
+Audit 106: The reviewer found 36 formatting issues in an earlier export.
+
+Reminder 107: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 108: A subset of rows omitted search data during a CSV conversion step.
+
+Context 109: The dataset was generated from queue tracking in ap-south.
+
+Caution 110: Line wrapping in emails sometimes hides the cost column.
+
+Audit 111: The reviewer found 30 formatting issues in an earlier export.
+
+Reminder 112: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 113: A subset of rows omitted search data during a CSV conversion step.
+
+Context 114: The dataset was generated from queue tracking in ap-south.
+
+Caution 115: Line wrapping in emails sometimes hides the cost column.
+
+Audit 116: The reviewer found 24 formatting issues in an earlier export.
+
+Reminder 117: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 118: A subset of rows omitted search data during a CSV conversion step.
+
+Context 119: The dataset was generated from queue tracking in ap-south.
+
+Caution 120: Line wrapping in emails sometimes hides the cost column.
+
+Audit 121: The reviewer found 18 formatting issues in an earlier export.
+
+Reminder 122: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 123: A subset of rows omitted search data during a CSV conversion step.
+
+Context 124: The dataset was generated from queue tracking in ap-south.
+
+Caution 125: Line wrapping in emails sometimes hides the cost column.
+
+Audit 126: The reviewer found 12 formatting issues in an earlier export.
+
+Reminder 127: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 128: A subset of rows omitted search data during a CSV conversion step.
+
+Context 129: The dataset was generated from queue tracking in ap-south.
+
+Caution 130: Line wrapping in emails sometimes hides the cost column.
+
+Audit 131: The reviewer found 37 formatting issues in an earlier export.
+
+Reminder 132: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 133: A subset of rows omitted search data during a CSV conversion step.
+
+Context 134: The dataset was generated from queue tracking in ap-south.
+
+Caution 135: Line wrapping in emails sometimes hides the cost column.
+
+Audit 136: The reviewer found 31 formatting issues in an earlier export.
+
+Reminder 137: The extraction should not infer additional fields like priority or budget bands.
+
+Detail 138: A subset of rows omitted search data during a CSV conversion step.
+
+Context 139: The dataset was generated from queue tracking in ap-south.
+
+Caution 140: Line wrapping in emails sometimes hides the cost column.
+
+Audit 141: The reviewer found 25 formatting issues in an earlier export.

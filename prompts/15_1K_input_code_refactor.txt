@@ -1,0 +1,223 @@
+
+Refactor the Python module below.
+Goals:
+- Remove global state.
+- Replace CONFIG with a dataclass.
+- Add type hints for all functions.
+- Avoid changing behavior.
+
+Output only a unified diff, no prose.
+
+Module:
+"""Legacy utilities for handling batch jobs."""
+import json
+import os
+from typing import Dict, List
+
+DEFAULT_TIMEOUT = 30
+CONFIG = {'timeout': DEFAULT_TIMEOUT, 'retries': 3}
+
+def load_config(path=None):
+    path = path or os.getenv('JOB_CONFIG', 'config.json')
+    if not os.path.exists(path):
+        return CONFIG
+    with open(path, 'r') as handle:
+        data = json.load(handle)
+    CONFIG.update(data)
+    return CONFIG
+
+def validate_items(items: List[Dict]):
+    for item in items:
+        if 'id' not in item:
+            raise ValueError('missing id')
+        if 'payload' not in item:
+            raise ValueError('missing payload')
+
+def process_item(item: Dict) -> Dict:
+    if item.get('skip'):
+        return {'id': item['id'], 'status': 'skipped'}
+    payload = item['payload']
+    return {'id': item['id'], 'status': 'ok', 'size': len(payload)}
+
+def process_batch(items: List[Dict]) -> List[Dict]:
+    load_config()
+    validate_items(items)
+    results = []
+    for item in items:
+        results.append(process_item(item))
+    return results
+
+def transform_01(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-01-' + text
+
+def transform_02(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-02-' + text
+
+def transform_03(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-03-' + text
+
+def transform_04(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-04-' + text
+
+def transform_05(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-05-' + text
+
+def transform_06(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-06-' + text
+
+def transform_07(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-07-' + text
+
+def transform_08(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-08-' + text
+
+def transform_09(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-09-' + text
+
+def transform_10(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-10-' + text
+
+def transform_11(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-11-' + text
+
+def transform_12(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-12-' + text
+
+def transform_13(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-13-' + text
+
+def transform_14(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-14-' + text
+
+def transform_15(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-15-' + text
+
+def transform_16(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-16-' + text
+
+def transform_17(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-17-' + text
+
+def transform_18(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-18-' + text
+
+def transform_19(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-19-' + text
+
+def transform_20(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-20-' + text
+
+def transform_21(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-21-' + text
+
+def transform_22(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-22-' + text
+
+def transform_23(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-23-' + text
+
+def transform_24(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-24-' + text
+
+def transform_25(value: str) -> str:
+    if value is None:
+        return ''
+    text = value.strip()
+    text = text.replace('\t', ' ')
+    return f'item-25-' + text

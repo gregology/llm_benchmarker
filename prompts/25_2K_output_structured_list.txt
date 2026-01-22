@@ -1,0 +1,9 @@
+
+Generate exactly 120 items about software performance optimization.
+Format each line as:
+NNN. Title — one sentence description (max 18 words).
+
+Constraints:
+- Exactly 120 lines.
+- Use sequential numbering from 001 to 120.
+- No extra text before or after the list.

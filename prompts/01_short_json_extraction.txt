@@ -1,0 +1,7 @@
+
+You are a strict JSON extractor. Return JSON only, no extra text.
+Required keys: name, date, priority, action.
+
+Note:
+Meeting reminder: Call Alex about contract renewal on 2025-02-10. Priority is high.
+Action: send the revised proposal and ask for a 30-minute slot.
